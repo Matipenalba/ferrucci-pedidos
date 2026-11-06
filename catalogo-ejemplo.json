@@ -1,0 +1,294 @@
+{
+ "actualizado": "ejemplo",
+ "productos": [
+  {
+   "codigo": "100",
+   "rubro": "Pizzas",
+   "nombre": "Muzzarella",
+   "descripcion": "",
+   "precio": 16000,
+   "precioMedia": 10000,
+   "foto": "muzzarella.jpg"
+  },
+  {
+   "codigo": "101",
+   "rubro": "Pizzas",
+   "nombre": "Funghi",
+   "descripcion": "",
+   "precio": 18000,
+   "precioMedia": 11000,
+   "foto": "funghi.jpg"
+  },
+  {
+   "codigo": "102",
+   "rubro": "Pizzas",
+   "nombre": "Margarita",
+   "descripcion": "",
+   "precio": 17000,
+   "precioMedia": 10500,
+   "foto": "margarita.jpg"
+  },
+  {
+   "codigo": "103",
+   "rubro": "Pizzas",
+   "nombre": "Rúcula con jamón crudo",
+   "descripcion": "",
+   "precio": 18000,
+   "precioMedia": 11000,
+   "foto": "rucula-crudo.jpg"
+  },
+  {
+   "codigo": "104",
+   "rubro": "Pizzas",
+   "nombre": "Di Cocido",
+   "descripcion": "",
+   "precio": 18000,
+   "precioMedia": 11000,
+   "foto": "di-cocido.jpg"
+  },
+  {
+   "codigo": "105",
+   "rubro": "Pizzas",
+   "nombre": "Roquefort",
+   "descripcion": "",
+   "precio": 17000,
+   "precioMedia": 10500,
+   "foto": "roquefort.jpg"
+  },
+  {
+   "codigo": "106",
+   "rubro": "Pizzas",
+   "nombre": "Varie",
+   "descripcion": "",
+   "precio": 18000,
+   "precioMedia": 11000,
+   "foto": "varie.jpg"
+  },
+  {
+   "codigo": "107",
+   "rubro": "Pizzas",
+   "nombre": "Salchichas",
+   "descripcion": "",
+   "precio": 17000,
+   "precioMedia": 10500,
+   "foto": "salchichas.jpg"
+  },
+  {
+   "codigo": "108",
+   "rubro": "Pizzas",
+   "nombre": "4 quesos",
+   "descripcion": "",
+   "precio": 18000,
+   "precioMedia": 11000,
+   "foto": "4-quesos.jpg"
+  },
+  {
+   "codigo": "109",
+   "rubro": "Pizzas",
+   "nombre": "Calabresa",
+   "descripcion": "",
+   "precio": 18000,
+   "precioMedia": 11000,
+   "foto": "calabresa.jpg"
+  },
+  {
+   "codigo": "110",
+   "rubro": "Pizzas",
+   "nombre": "Provolone con miel",
+   "descripcion": "",
+   "precio": 18000,
+   "precioMedia": 11000,
+   "foto": "provolone-miel.jpg"
+  },
+  {
+   "codigo": "111",
+   "rubro": "Pizzas",
+   "nombre": "Locura",
+   "descripcion": "",
+   "precio": 18000,
+   "precioMedia": 11000,
+   "foto": "locura.jpg"
+  },
+  {
+   "codigo": "112",
+   "rubro": "Pizzas",
+   "nombre": "Jamón crudo",
+   "descripcion": "",
+   "precio": 18000,
+   "precioMedia": 11000,
+   "foto": "jamon-crudo.jpg"
+  },
+  {
+   "codigo": "113",
+   "rubro": "Pizzas",
+   "nombre": "Napolitana",
+   "descripcion": "",
+   "precio": 16000,
+   "precioMedia": 10000,
+   "foto": "napolitana.jpg"
+  },
+  {
+   "codigo": "114",
+   "rubro": "Pizzas",
+   "nombre": "Anchoas",
+   "descripcion": "",
+   "precio": 17000,
+   "precioMedia": 10500,
+   "foto": "anchoas.jpg"
+  },
+  {
+   "codigo": "115",
+   "rubro": "Pizzas",
+   "nombre": "Palmitos",
+   "descripcion": "",
+   "precio": 17000,
+   "precioMedia": 10500,
+   "foto": "palmitos.jpg"
+  },
+  {
+   "codigo": "116",
+   "rubro": "Pizzas",
+   "nombre": "Rúcula",
+   "descripcion": "",
+   "precio": 16000,
+   "precioMedia": 10000,
+   "foto": "rucula.jpg"
+  },
+  {
+   "codigo": "117",
+   "rubro": "Pizzas",
+   "nombre": "Fugazzetta",
+   "descripcion": "",
+   "precio": 17000,
+   "precioMedia": 10500,
+   "foto": "fugazzetta.jpg"
+  },
+  {
+   "codigo": "118",
+   "rubro": "Pizzas",
+   "nombre": "Peperoni",
+   "descripcion": "",
+   "precio": 18000,
+   "precioMedia": 11000,
+   "foto": "peperoni.jpg"
+  },
+  {
+   "codigo": "119",
+   "rubro": "Pizzas",
+   "nombre": "Diavoletta d'Oro",
+   "descripcion": "",
+   "precio": 18000,
+   "precioMedia": 11000,
+   "foto": ""
+  },
+  {
+   "codigo": "120",
+   "rubro": "Pizzas",
+   "nombre": "Veneci",
+   "descripcion": "",
+   "precio": 18000,
+   "precioMedia": 11000,
+   "foto": "veneci.jpg"
+  },
+  {
+   "codigo": "200",
+   "rubro": "Empanadas",
+   "nombre": "Cebolla y roquefort",
+   "descripcion": "",
+   "precio": 1800,
+   "precioMedia": null,
+   "foto": "emp-ryc.jpg"
+  },
+  {
+   "codigo": "201",
+   "rubro": "Empanadas",
+   "nombre": "Jamón y queso",
+   "descripcion": "",
+   "precio": 1800,
+   "precioMedia": null,
+   "foto": "emp-jyq.jpg"
+  },
+  {
+   "codigo": "202",
+   "rubro": "Empanadas",
+   "nombre": "Bondiola",
+   "descripcion": "",
+   "precio": 1800,
+   "precioMedia": null,
+   "foto": "emp-bondiola.jpg"
+  },
+  {
+   "codigo": "250",
+   "rubro": "Sándwiches",
+   "nombre": "Panuozzo Serrano",
+   "descripcion": "",
+   "precio": 17000,
+   "precioMedia": null,
+   "foto": "panuozzo.jpg"
+  },
+  {
+   "codigo": "251",
+   "rubro": "Sándwiches",
+   "nombre": "Panuozzo Di Cocido",
+   "descripcion": "",
+   "precio": 17000,
+   "precioMedia": null,
+   "foto": "panuozzo.jpg"
+  },
+  {
+   "codigo": "252",
+   "rubro": "Sándwiches",
+   "nombre": "Panuozzo Vegetariano",
+   "descripcion": "",
+   "precio": 17000,
+   "precioMedia": null,
+   "foto": "panuozzo.jpg"
+  },
+  {
+   "codigo": "253",
+   "rubro": "Sándwiches",
+   "nombre": "Panuozzo Bondiola",
+   "descripcion": "",
+   "precio": 18000,
+   "precioMedia": null,
+   "foto": "panuozzo.jpg"
+  },
+  {
+   "codigo": "300",
+   "rubro": "Bebidas",
+   "nombre": "Gaseosa",
+   "descripcion": "Coca-Cola, Sprite, Fanta o Paso de los Toros",
+   "precio": 5000,
+   "precioMedia": null,
+   "foto": ""
+  },
+  {
+   "codigo": "301",
+   "rubro": "Bebidas",
+   "nombre": "Baggio Fresh",
+   "descripcion": "",
+   "precio": 3000,
+   "precioMedia": null,
+   "foto": ""
+  },
+  {
+   "codigo": "302",
+   "rubro": "Bebidas",
+   "nombre": "Cerveza en lata",
+   "descripcion": "",
+   "precio": 5000,
+   "precioMedia": null,
+   "foto": ""
+  }
+ ],
+ "whatsapp": "5493582597098",
+ "envio": 2000,
+ "empanadas": {
+  "mediaDocena": 10000,
+  "docena": 19000
+ },
+ "local": {
+  "abierto": true,
+  "mensaje": ""
+ }
+}

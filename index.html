@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Ferrucci Pizzas · Hacé tu pedido</title>
+  <meta name="description" content="Armá tu pedido de Ferrucci Pizzas y envialo por WhatsApp.">
+  <meta name="theme-color" content="#14110f">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,800;1,9..144,600&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="marca">
+    <img class="marca-logo" src="img/logo.png" alt="Ferrucci Pizzas" onerror="this.remove()">
+    <div class="marca-texto">
+      <span class="marca-nombre">Ferrucci</span>
+      <span class="marca-sub">Pizzas napolitanas · Sampacho</span>
+    </div>
+  </header>
+
+  <div id="aviso-cerrado" class="aviso-cerrado" hidden></div>
+
+  <!-- ============ PASO 1: CATALOGO ============ -->
+  <main id="paso-catalogo">
+    <nav class="rubros" id="rubros" aria-label="Rubros"></nav>
+    <div id="catalogo" class="catalogo">
+      <p class="cargando">Cargando el menú…</p>
+    </div>
+  </main>
+
+  <!-- ============ PASO 2: DATOS Y PAGO ============ -->
+  <main id="paso-datos" hidden>
+    <button class="volver" type="button" id="btn-volver">← Seguir eligiendo</button>
+
+    <section class="bloque">
+      <h2>Tus datos</h2>
+      <label class="campo">
+        <span>Nombre</span>
+        <input id="nombre" type="text" autocomplete="name" placeholder="¿A nombre de quién?" maxlength="60">
+      </label>
+
+      <div class="campo">
+        <span>¿Cómo lo recibís?</span>
+        <div class="opciones" role="radiogroup" aria-label="Forma de entrega">
+          <button type="button" class="opcion" data-entrega="retiro" role="radio" aria-checked="false">Retiro en el local</button>
+          <button type="button" class="opcion" data-entrega="envio" role="radio" aria-checked="false">Envío a domicilio</button>
+        </div>
+      </div>
+
+      <label class="campo" id="campo-domicilio" hidden>
+        <span>Domicilio</span>
+        <input id="domicilio" type="text" autocomplete="street-address" placeholder="Calle, número y alguna referencia" maxlength="120">
+      </label>
+    </section>
+
+    <section class="bloque">
+      <h2>Tu pedido</h2>
+      <div id="resumen"></div>
+    </section>
+
+    <section class="bloque">
+      <h2>¿Cómo pagás?</h2>
+      <div class="opciones" role="radiogroup" aria-label="Forma de pago">
+        <button type="button" class="opcion" data-pago="Efectivo" role="radio" aria-checked="false">Efectivo</button>
+        <button type="button" class="opcion" data-pago="Transferencia" role="radio" aria-checked="false">Transferencia</button>
+      </div>
+    </section>
+
+    <p id="error-datos" class="error" role="alert" hidden></p>
+    <button type="button" class="boton-principal" id="btn-finalizar">Finalizar pedido</button>
+    <p class="nota">Se abre WhatsApp con tu pedido escrito. Solo tenés que tocar enviar.</p>
+  </main>
+
+  <!-- Barra inferior del paso 1 -->
+  <div class="barra" id="barra" hidden>
+    <p id="error-catalogo" class="error" role="alert" hidden></p>
+    <button type="button" class="boton-principal" id="btn-continuar">
+      <span id="barra-cantidad"></span>
+      <span>Continuar</span>
+      <span id="barra-total"></span>
+    </button>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
