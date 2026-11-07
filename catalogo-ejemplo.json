@@ -3,289 +3,514 @@
  "productos": [
   {
    "codigo": "100",
-   "rubro": "Pizzas",
+   "rubro": "Pizza Grande",
    "nombre": "Muzzarella",
-   "descripcion": "",
-   "precio": 16000,
-   "precioMedia": 10000,
-   "foto": "muzzarella.jpg"
-  },
-  {
-   "codigo": "101",
-   "rubro": "Pizzas",
-   "nombre": "Funghi",
-   "descripcion": "",
+   "descripcion": "Salsa, mozzarella, aceitunas verdes y un toque de hierbas aromáticas.",
    "precio": 18000,
-   "precioMedia": 11000,
-   "foto": "funghi.jpg"
+   "foto": "muzzarella.jpg",
+   "orden": 1
   },
   {
    "codigo": "102",
-   "rubro": "Pizzas",
+   "rubro": "Pizza Grande",
    "nombre": "Margarita",
-   "descripcion": "",
-   "precio": 17000,
-   "precioMedia": 10500,
-   "foto": "margarita.jpg"
-  },
-  {
-   "codigo": "103",
-   "rubro": "Pizzas",
-   "nombre": "Rúcula con jamón crudo",
-   "descripcion": "",
+   "descripcion": "Salsa, mozzarella, albahaca, tomates confitados y un toque de hierbas aromáticas.",
    "precio": 18000,
-   "precioMedia": 11000,
-   "foto": "rucula-crudo.jpg"
+   "foto": "margarita.jpg",
+   "orden": 2
   },
   {
    "codigo": "104",
-   "rubro": "Pizzas",
-   "nombre": "Di Cocido",
-   "descripcion": "",
+   "rubro": "Pizza Grande",
+   "nombre": "Di cocido",
+   "descripcion": "Salsa, mozzarella, jamón cocido, morrones asados y un toque de hierbas aromáticas.",
    "precio": 18000,
-   "precioMedia": 11000,
-   "foto": "di-cocido.jpg"
-  },
-  {
-   "codigo": "105",
-   "rubro": "Pizzas",
-   "nombre": "Roquefort",
-   "descripcion": "",
-   "precio": 17000,
-   "precioMedia": 10500,
-   "foto": "roquefort.jpg"
+   "foto": "di-cocido.jpg",
+   "orden": 3
   },
   {
    "codigo": "106",
-   "rubro": "Pizzas",
+   "rubro": "Pizza Grande",
    "nombre": "Varie",
-   "descripcion": "",
-   "precio": 18000,
-   "precioMedia": 11000,
-   "foto": "varie.jpg"
+   "descripcion": "Salsa, mozzarella, jamón cocido, cebolla, orégano y hierbas aromáticas.",
+   "precio": 19000,
+   "foto": "varie.jpg",
+   "orden": 4
   },
   {
-   "codigo": "107",
-   "rubro": "Pizzas",
-   "nombre": "Salchichas",
-   "descripcion": "",
-   "precio": 17000,
-   "precioMedia": 10500,
-   "foto": "salchichas.jpg"
-  },
-  {
-   "codigo": "108",
-   "rubro": "Pizzas",
-   "nombre": "4 quesos",
-   "descripcion": "",
-   "precio": 18000,
-   "precioMedia": 11000,
-   "foto": "4-quesos.jpg"
-  },
-  {
-   "codigo": "109",
-   "rubro": "Pizzas",
-   "nombre": "Calabresa",
-   "descripcion": "",
-   "precio": 18000,
-   "precioMedia": 11000,
-   "foto": "calabresa.jpg"
-  },
-  {
-   "codigo": "110",
-   "rubro": "Pizzas",
-   "nombre": "Provolone con miel",
-   "descripcion": "",
-   "precio": 18000,
-   "precioMedia": 11000,
-   "foto": "provolone-miel.jpg"
+   "codigo": "103",
+   "rubro": "Pizza Grande",
+   "nombre": "Rucula c/ Proscuito",
+   "descripcion": "Salsa, queso mozzarella, hojas de rúcula, jamón crudo y un toque de hierbas aromáticas.",
+   "precio": 19000,
+   "foto": "rucula-crudo.jpg",
+   "orden": 5
   },
   {
    "codigo": "111",
-   "rubro": "Pizzas",
+   "rubro": "Pizza Grande",
    "nombre": "Locura",
-   "descripcion": "",
-   "precio": 18000,
-   "precioMedia": 11000,
-   "foto": "locura.jpg"
-  },
-  {
-   "codigo": "112",
-   "rubro": "Pizzas",
-   "nombre": "Jamón crudo",
-   "descripcion": "",
-   "precio": 18000,
-   "precioMedia": 11000,
-   "foto": "jamon-crudo.jpg"
+   "descripcion": "Salsa, queso mozzarella, hongos, panceta y hierbas aromáticas.",
+   "precio": 19000,
+   "foto": "locura.jpg",
+   "orden": 6
   },
   {
    "codigo": "113",
-   "rubro": "Pizzas",
+   "rubro": "Pizza Grande",
    "nombre": "Napolitana",
-   "descripcion": "",
-   "precio": 16000,
-   "precioMedia": 10000,
-   "foto": "napolitana.jpg"
-  },
-  {
-   "codigo": "114",
-   "rubro": "Pizzas",
-   "nombre": "Anchoas",
-   "descripcion": "",
-   "precio": 17000,
-   "precioMedia": 10500,
-   "foto": "anchoas.jpg"
-  },
-  {
-   "codigo": "115",
-   "rubro": "Pizzas",
-   "nombre": "Palmitos",
-   "descripcion": "",
-   "precio": 17000,
-   "precioMedia": 10500,
-   "foto": "palmitos.jpg"
-  },
-  {
-   "codigo": "116",
-   "rubro": "Pizzas",
-   "nombre": "Rúcula",
-   "descripcion": "",
-   "precio": 16000,
-   "precioMedia": 10000,
-   "foto": "rucula.jpg"
+   "descripcion": "Salsa, queso mozzarella, rodajas de tomate, ajo y un toque de hierbas aromáticas.",
+   "precio": 18000,
+   "foto": "napolitana.jpg",
+   "orden": 7
   },
   {
    "codigo": "117",
-   "rubro": "Pizzas",
+   "rubro": "Pizza Grande",
    "nombre": "Fugazzetta",
-   "descripcion": "",
-   "precio": 17000,
-   "precioMedia": 10500,
-   "foto": "fugazzetta.jpg"
+   "descripcion": "Salsa, queso mozzarella, cebolla caramelizada, aceitunas verdes y un toque de hierbas aromáticas.",
+   "precio": 18000,
+   "foto": "fugazzetta.jpg",
+   "orden": 8
   },
   {
    "codigo": "118",
-   "rubro": "Pizzas",
+   "rubro": "Pizza Grande",
    "nombre": "Peperoni",
-   "descripcion": "",
-   "precio": 18000,
-   "precioMedia": 11000,
-   "foto": "peperoni.jpg"
+   "descripcion": "Salsa, queso mozzarella, rodajas de peperoni y un toque de hierbas aromáticas.",
+   "precio": 19000,
+   "foto": "peperoni.jpg",
+   "orden": 9
   },
   {
-   "codigo": "119",
-   "rubro": "Pizzas",
-   "nombre": "Diavoletta d'Oro",
-   "descripcion": "",
+   "codigo": "101",
+   "rubro": "Pizza Grande",
+   "nombre": "Funghi",
+   "descripcion": "Salsa, queso mozzarella, salteado de hongos y un toque de hierbas aromáticas.",
+   "precio": 19000,
+   "foto": "funghi.jpg",
+   "orden": 10
+  },
+  {
+   "codigo": "121",
+   "rubro": "Pizza Grande",
+   "nombre": "Pizza del mes",
+   "descripcion": "Salsa, queso mozzarella y tópicos especiales para este mes.",
+   "precio": 19000,
+   "foto": "pizza.svg",
+   "orden": 11
+  },
+  {
+   "codigo": "105",
+   "rubro": "Pizza Grande",
+   "nombre": "Roquefort",
+   "descripcion": "Salsa, queso mozzarella, queso azul y un toque de hierbas aromáticas.",
    "precio": 18000,
-   "precioMedia": 11000,
-   "foto": ""
+   "foto": "roquefort.jpg",
+   "orden": 12
+  },
+  {
+   "codigo": "107",
+   "rubro": "Pizza Grande",
+   "nombre": "Salchichas",
+   "descripcion": "Salsa, queso mozzarella, trozos de salchichas y un toque de hierbas aromáticas.",
+   "precio": 18000,
+   "foto": "salchichas.jpg",
+   "orden": 13
+  },
+  {
+   "codigo": "109",
+   "rubro": "Pizza Grande",
+   "nombre": "Calabresa",
+   "descripcion": "Salsa, queso mozzarella, rodajas de salame y un toque de hierbas aromáticas.",
+   "precio": 19000,
+   "foto": "calabresa.jpg",
+   "orden": 14
+  },
+  {
+   "codigo": "110",
+   "rubro": "Pizza Grande",
+   "nombre": "Provolone c/ Miel",
+   "descripcion": "Salsa, queso mozzarella, queso provolone, miel y un toque de hierbas aromáticas.",
+   "precio": 19000,
+   "foto": "provolone-miel.jpg",
+   "orden": 15
+  },
+  {
+   "codigo": "108",
+   "rubro": "Pizza Grande",
+   "nombre": "4 quesos",
+   "descripcion": "Salsa, queso mozzarella, sardo, azul, provolone y hierbas aromáticas.",
+   "precio": 19000,
+   "foto": "4-quesos.jpg",
+   "orden": 16
+  },
+  {
+   "codigo": "112",
+   "rubro": "Pizza Grande",
+   "nombre": "Jamon crudo",
+   "descripcion": "Salsa, queso mozzarella, jamón crudo y un toque de hierbas aromáticas.",
+   "precio": 19000,
+   "foto": "jamon-crudo.jpg",
+   "orden": 17
+  },
+  {
+   "codigo": "114",
+   "rubro": "Pizza Grande",
+   "nombre": "Anchoas",
+   "descripcion": "Salsa, queso mozzarella, anchoas y un toque de hierbas aromáticas.",
+   "precio": 18000,
+   "foto": "anchoas.jpg",
+   "orden": 18
+  },
+  {
+   "codigo": "115",
+   "rubro": "Pizza Grande",
+   "nombre": "Palmitos",
+   "descripcion": "Salsa, queso mozzarella, trozos de palmitos y un toque de hierbas aromáticas.",
+   "precio": 18000,
+   "foto": "palmitos.jpg",
+   "orden": 19
+  },
+  {
+   "codigo": "116",
+   "rubro": "Pizza Grande",
+   "nombre": "Rucula",
+   "descripcion": "Salsa, queso mozzarella, hojas de rúcula y un toque de hierbas aromáticas.",
+   "precio": 18000,
+   "foto": "rucula.jpg",
+   "orden": 20
   },
   {
    "codigo": "120",
-   "rubro": "Pizzas",
+   "rubro": "Pizza Grande",
    "nombre": "Veneci",
-   "descripcion": "",
-   "precio": 18000,
-   "precioMedia": 11000,
-   "foto": "veneci.jpg"
+   "descripcion": "Salsa, queso mozzarella, queso azul, tomates confitados, pesto y un toque de hierbas aromáticas.",
+   "precio": 19000,
+   "foto": "veneci.jpg",
+   "orden": 21
   },
   {
-   "codigo": "200",
-   "rubro": "Empanadas",
-   "nombre": "Cebolla y roquefort",
-   "descripcion": "",
-   "precio": 1800,
-   "precioMedia": null,
-   "foto": "emp-ryc.jpg"
+   "codigo": "122",
+   "rubro": "Pizza Grande",
+   "nombre": "Hawaiana",
+   "descripcion": "Salsa, queso mozzarella, rodajas de ananá, azúcar negra, cerezas y un toque de hierbas aromáticas.",
+   "precio": 19000,
+   "foto": "hawaiana.jpg",
+   "orden": 23
   },
   {
-   "codigo": "201",
-   "rubro": "Empanadas",
-   "nombre": "Jamón y queso",
-   "descripcion": "",
-   "precio": 1800,
-   "precioMedia": null,
-   "foto": "emp-jyq.jpg"
+   "codigo": "150",
+   "rubro": "Pizza Chica",
+   "nombre": "Muzzarella",
+   "descripcion": "Salsa, mozzarella, aceitunas verdes y un toque de hierbas aromáticas.",
+   "precio": 12000,
+   "foto": "muzzarella.jpg",
+   "orden": 1
+  },
+  {
+   "codigo": "152",
+   "rubro": "Pizza Chica",
+   "nombre": "Margarita",
+   "descripcion": "Salsa, mozzarella, albahaca, tomates confitados y un toque de hierbas aromáticas.",
+   "precio": 12000,
+   "foto": "margarita.jpg",
+   "orden": 2
+  },
+  {
+   "codigo": "154",
+   "rubro": "Pizza Chica",
+   "nombre": "Di cocido",
+   "descripcion": "Salsa, mozzarella, jamón cocido, morrones asados y un toque de hierbas aromáticas.",
+   "precio": 12000,
+   "foto": "di-cocido.jpg",
+   "orden": 3
+  },
+  {
+   "codigo": "156",
+   "rubro": "Pizza Chica",
+   "nombre": "Varie",
+   "descripcion": "Salsa, mozzarella, jamón cocido, cebolla, orégano y hierbas aromáticas.",
+   "precio": 13000,
+   "foto": "varie.jpg",
+   "orden": 4
+  },
+  {
+   "codigo": "153",
+   "rubro": "Pizza Chica",
+   "nombre": "Rucula c/ Proscuito",
+   "descripcion": "Salsa, queso mozzarella, hojas de rúcula, jamón crudo y un toque de hierbas aromáticas.",
+   "precio": 13000,
+   "foto": "rucula-crudo.jpg",
+   "orden": 5
+  },
+  {
+   "codigo": "161",
+   "rubro": "Pizza Chica",
+   "nombre": "Locura",
+   "descripcion": "Salsa, queso mozzarella, hongos, panceta y hierbas aromáticas.",
+   "precio": 13000,
+   "foto": "locura.jpg",
+   "orden": 6
+  },
+  {
+   "codigo": "163",
+   "rubro": "Pizza Chica",
+   "nombre": "Napolitana",
+   "descripcion": "Salsa, queso mozzarella, rodajas de tomate, ajo y un toque de hierbas aromáticas.",
+   "precio": 12000,
+   "foto": "napolitana.jpg",
+   "orden": 7
+  },
+  {
+   "codigo": "167",
+   "rubro": "Pizza Chica",
+   "nombre": "Fugazzetta",
+   "descripcion": "Salsa, queso mozzarella, cebolla caramelizada, aceitunas verdes y un toque de hierbas aromáticas.",
+   "precio": 12000,
+   "foto": "fugazzetta.jpg",
+   "orden": 8
+  },
+  {
+   "codigo": "168",
+   "rubro": "Pizza Chica",
+   "nombre": "Peperoni",
+   "descripcion": "Salsa, queso mozzarella, rodajas de peperoni y un toque de hierbas aromáticas.",
+   "precio": 13000,
+   "foto": "peperoni.jpg",
+   "orden": 9
+  },
+  {
+   "codigo": "151",
+   "rubro": "Pizza Chica",
+   "nombre": "Funghi",
+   "descripcion": "Salsa, queso mozzarella, salteado de hongos y un toque de hierbas aromáticas.",
+   "precio": 13000,
+   "foto": "funghi.jpg",
+   "orden": 10
+  },
+  {
+   "codigo": "171",
+   "rubro": "Pizza Chica",
+   "nombre": "Pizza del mes",
+   "descripcion": "Salsa, queso mozzarella y tópicos especiales para este mes.",
+   "precio": 13000,
+   "foto": "pizza.svg",
+   "orden": 11
+  },
+  {
+   "codigo": "155",
+   "rubro": "Pizza Chica",
+   "nombre": "Roquefort",
+   "descripcion": "Salsa, queso mozzarella, queso azul y un toque de hierbas aromáticas.",
+   "precio": 12000,
+   "foto": "roquefort.jpg",
+   "orden": 12
+  },
+  {
+   "codigo": "157",
+   "rubro": "Pizza Chica",
+   "nombre": "Salchichas",
+   "descripcion": "Salsa, queso mozzarella, trozos de salchichas y un toque de hierbas aromáticas.",
+   "precio": 12000,
+   "foto": "salchichas.jpg",
+   "orden": 13
+  },
+  {
+   "codigo": "159",
+   "rubro": "Pizza Chica",
+   "nombre": "Calabresa",
+   "descripcion": "Salsa, queso mozzarella, rodajas de salame y un toque de hierbas aromáticas.",
+   "precio": 13000,
+   "foto": "calabresa.jpg",
+   "orden": 14
+  },
+  {
+   "codigo": "160",
+   "rubro": "Pizza Chica",
+   "nombre": "Provolone c/ Miel",
+   "descripcion": "Salsa, queso mozzarella, queso provolone, miel y un toque de hierbas aromáticas.",
+   "precio": 13000,
+   "foto": "provolone-miel.jpg",
+   "orden": 15
+  },
+  {
+   "codigo": "158",
+   "rubro": "Pizza Chica",
+   "nombre": "4 quesos",
+   "descripcion": "Salsa, queso mozzarella, sardo, azul, provolone y hierbas aromáticas.",
+   "precio": 13000,
+   "foto": "4-quesos.jpg",
+   "orden": 16
+  },
+  {
+   "codigo": "162",
+   "rubro": "Pizza Chica",
+   "nombre": "Jamon crudo",
+   "descripcion": "Salsa, queso mozzarella, jamón crudo y un toque de hierbas aromáticas.",
+   "precio": 13000,
+   "foto": "jamon-crudo.jpg",
+   "orden": 17
+  },
+  {
+   "codigo": "164",
+   "rubro": "Pizza Chica",
+   "nombre": "Anchoas",
+   "descripcion": "Salsa, queso mozzarella, anchoas y un toque de hierbas aromáticas.",
+   "precio": 12000,
+   "foto": "anchoas.jpg",
+   "orden": 18
+  },
+  {
+   "codigo": "165",
+   "rubro": "Pizza Chica",
+   "nombre": "Palmitos",
+   "descripcion": "Salsa, queso mozzarella, trozos de palmitos y un toque de hierbas aromáticas.",
+   "precio": 12000,
+   "foto": "palmitos.jpg",
+   "orden": 19
+  },
+  {
+   "codigo": "166",
+   "rubro": "Pizza Chica",
+   "nombre": "Rucula",
+   "descripcion": "Salsa, queso mozzarella, hojas de rúcula y un toque de hierbas aromáticas.",
+   "precio": 12000,
+   "foto": "rucula.jpg",
+   "orden": 20
+  },
+  {
+   "codigo": "170",
+   "rubro": "Pizza Chica",
+   "nombre": "Veneci",
+   "descripcion": "Salsa, queso mozzarella, queso azul, tomates confitados, pesto y un toque de hierbas aromáticas.",
+   "precio": 13000,
+   "foto": "veneci.jpg",
+   "orden": 21
+  },
+  {
+   "codigo": "172",
+   "rubro": "Pizza Chica",
+   "nombre": "Hawaiana",
+   "descripcion": "Salsa, queso mozzarella, rodajas de ananá, azúcar negra, cerezas y un toque de hierbas aromáticas.",
+   "precio": 13000,
+   "foto": "hawaiana.jpg",
+   "orden": 23
   },
   {
    "codigo": "202",
    "rubro": "Empanadas",
    "nombre": "Bondiola",
    "descripcion": "",
-   "precio": 1800,
-   "precioMedia": null,
-   "foto": "emp-bondiola.jpg"
+   "precio": 1900,
+   "foto": "emp-bondiola.jpg",
+   "orden": 1
   },
   {
-   "codigo": "250",
-   "rubro": "Sándwiches",
-   "nombre": "Panuozzo Serrano",
+   "codigo": "200",
+   "rubro": "Empanadas",
+   "nombre": "Cebolla y roquefort",
    "descripcion": "",
-   "precio": 17000,
-   "precioMedia": null,
-   "foto": "panuozzo.jpg"
+   "precio": 1900,
+   "foto": "emp-ryc.jpg",
+   "orden": 2
   },
   {
-   "codigo": "251",
-   "rubro": "Sándwiches",
-   "nombre": "Panuozzo Di Cocido",
+   "codigo": "201",
+   "rubro": "Empanadas",
+   "nombre": "Jamon y queso",
    "descripcion": "",
-   "precio": 17000,
-   "precioMedia": null,
-   "foto": "panuozzo.jpg"
+   "precio": 1900,
+   "foto": "emp-jyq.jpg",
+   "orden": 3
   },
   {
-   "codigo": "252",
+   "codigo": "230",
    "rubro": "Sándwiches",
-   "nombre": "Panuozzo Vegetariano",
-   "descripcion": "",
-   "precio": 17000,
-   "precioMedia": null,
-   "foto": "panuozzo.jpg"
-  },
-  {
-   "codigo": "253",
-   "rubro": "Sándwiches",
-   "nombre": "Panuozzo Bondiola",
+   "nombre": "Sandwich Serrano",
    "descripcion": "",
    "precio": 18000,
-   "precioMedia": null,
-   "foto": "panuozzo.jpg"
+   "foto": "panuozzo.jpg",
+   "orden": 1
   },
   {
-   "codigo": "300",
-   "rubro": "Bebidas",
-   "nombre": "Gaseosa",
-   "descripcion": "Coca-Cola, Sprite, Fanta o Paso de los Toros",
-   "precio": 5000,
-   "precioMedia": null,
-   "foto": ""
-  },
-  {
-   "codigo": "301",
-   "rubro": "Bebidas",
-   "nombre": "Baggio Fresh",
+   "codigo": "231",
+   "rubro": "Sándwiches",
+   "nombre": "Sandwich Di cocido",
    "descripcion": "",
-   "precio": 3000,
-   "precioMedia": null,
-   "foto": ""
+   "precio": 18000,
+   "foto": "panuozzo.jpg",
+   "orden": 2
   },
   {
-   "codigo": "302",
-   "rubro": "Bebidas",
-   "nombre": "Cerveza en lata",
+   "codigo": "232",
+   "rubro": "Sándwiches",
+   "nombre": "Sandwich Vegetariano",
    "descripcion": "",
-   "precio": 5000,
-   "precioMedia": null,
-   "foto": ""
+   "precio": 18000,
+   "foto": "panuozzo.jpg",
+   "orden": 3
+  },
+  {
+   "codigo": "233",
+   "rubro": "Sándwiches",
+   "nombre": "Sandwich Bondiola",
+   "descripcion": "",
+   "precio": 20000,
+   "foto": "panuozzo.jpg",
+   "orden": 4
+  },
+  {
+   "codigo": "360",
+   "rubro": "Bebidas",
+   "nombre": "Gaseosa 1,5l",
+   "descripcion": "",
+   "precio": 6000,
+   "foto": "gaseosa.svg",
+   "orden": 1
+  },
+  {
+   "codigo": "361",
+   "rubro": "Bebidas",
+   "nombre": "Baggio 1,5l",
+   "descripcion": "",
+   "precio": 4500,
+   "foto": "jugo.svg",
+   "orden": 2
+  },
+  {
+   "codigo": "362",
+   "rubro": "Bebidas",
+   "nombre": "Cerveza lata",
+   "descripcion": "",
+   "precio": 6000,
+   "foto": "cerveza.svg",
+   "orden": 3
+  },
+  {
+   "codigo": "363",
+   "rubro": "Bebidas",
+   "nombre": "Bebida por medida",
+   "descripcion": "",
+   "precio": 6000,
+   "foto": "vaso.svg",
+   "orden": 4
+  },
+  {
+   "codigo": "280",
+   "rubro": "Focaccias",
+   "nombre": "Focaccias",
+   "descripcion": "",
+   "precio": 2400,
+   "foto": "focaccia.svg",
+   "orden": 1
   }
  ],
  "whatsapp": "5493582597098",
  "envio": 2000,
  "empanadas": {
-  "mediaDocena": 10000,
-  "docena": 19000
+  "mediaDocena": 11000,
+  "docena": 20000
  },
  "local": {
   "abierto": true,

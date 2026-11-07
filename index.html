@@ -14,11 +14,9 @@
 <body>
 
   <header class="marca">
-    <img class="marca-logo" src="img/logo.png" alt="Ferrucci Pizzas" onerror="this.remove()">
-    <div class="marca-texto">
-      <span class="marca-nombre">Ferrucci</span>
-      <span class="marca-sub">Pizzas napolitanas · Sampacho</span>
-    </div>
+    <img class="marca-logo" src="img/logo.png" alt="Ferrucci" onerror="this.remove(); document.querySelector('.marca-nombre').hidden = false;">
+    <span class="marca-nombre" hidden>Ferrucci</span>
+    <span class="marca-sub">Pizzas napolitanas · Sampacho · Pedidos online</span>
   </header>
 
   <div id="aviso-cerrado" class="aviso-cerrado" hidden></div>

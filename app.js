@@ -6,11 +6,20 @@
 (function () {
   'use strict';
 
-  var ORDEN_RUBROS = ['Pizzas', 'Empanadas', 'Sándwiches', 'Bebidas'];
+  var ORDEN_RUBROS = ['Pizza Grande', 'Pizza Chica', 'Empanadas', 'Sándwiches', 'Bebidas', 'Focaccias'];
+  var RUBRO_MEDIAS = 'Pizza Grande';   // único rubro que se pide de a media
+  var FOTO_POR_RUBRO = {
+    'Pizza Grande': 'pizza.svg', 'Pizza Chica': 'pizza.svg', 'Empanadas': 'empanada.svg',
+    'Sándwiches': 'panuozzo.jpg', 'Bebidas': 'gaseosa.svg', 'Focaccias': 'focaccia.svg'
+  };
+  var BAJADAS = {
+    'Pizza Grande': 'Podés pedir media de un gusto y media de otro. Las medias tienen que completar pizzas enteras.',
+    'Pizza Chica': 'Pizzas individuales, de un solo gusto.'
+  };
 
   var catalogo = null;           // datos de la planilla
   var porCodigo = {};            // codigo -> producto
-  var carrito = {};              // clave -> cantidad   (clave = codigo o codigo + ':m' para medias)
+  var carrito = {};              // codigo -> cantidad (en Pizza Grande puede ser 0,5)
   var entrega = null;            // 'retiro' | 'envio'
   var pago = null;               // 'Efectivo' | 'Transferencia'
 
@@ -26,6 +35,19 @@
     return String(t).replace(/[&<>"']/g, function (c) {
       return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
     });
+  }
+
+  // 0.5 -> "½", 1.5 -> "1½"
+  function cant(n) {
+    var entero = Math.floor(n);
+    var media = n - entero >= 0.5;
+    return (entero ? String(entero) : '') + (media ? '½' : '') || '0';
+  }
+
+  function nombreLargo(p) {
+    if (p.rubro === 'Pizza Grande') return p.nombre + ' (grande)';
+    if (p.rubro === 'Pizza Chica') return p.nombre + ' (chica)';
+    return p.nombre;
   }
 
   function slug(t) {
@@ -78,9 +100,7 @@
       var items = catalogo.productos.filter(function (p) { return p.rubro === r; });
       var cabecera = '<h2>' + esc(r) + '</h2>';
 
-      if (r === 'Pizzas') {
-        cabecera += '<p class="bajada">Podés pedir enteras o medias. Las medias se combinan de a dos para formar pizzas enteras.</p>';
-      }
+      if (BAJADAS[r]) cabecera += '<p class="bajada">' + BAJADAS[r] + '</p>';
       if (r === 'Empanadas') {
         var e = catalogo.empanadas || {};
         cabecera += '<div class="info-empanadas">' +
@@ -91,7 +111,7 @@
           '</div>';
       }
 
-      var chico = (r === 'Bebidas');
+      var chico = false;
       return '<section class="seccion" id="r-' + slug(r) + '">' + cabecera +
         '<div class="grilla">' + items.map(function (p) { return tarjeta(p, chico); }).join('') + '</div>' +
         '</section>';
@@ -102,14 +122,14 @@
   }
 
   function tarjeta(p, chico) {
-    var foto = p.foto
-      ? '<img class="producto-foto" src="img/' + esc(p.foto) + '" alt="' + esc(p.nombre) + '" loading="lazy">'
-      : '<div class="producto-sinfoto">' + esc(p.nombre) + '</div>';
+    var archivo = p.foto || FOTO_POR_RUBRO[p.rubro] || 'pizza.svg';
+    var esIlustracion = /\.svg$/i.test(archivo);
+    var foto = '<img class="producto-foto' + (esIlustracion ? ' ilustracion' : '') + '" src="img/' + esc(archivo) +
+      '" alt="' + esc(p.nombre) + '" loading="lazy">';
 
-    var lineas = linea(p.codigo, p.rubro === 'Pizzas' && p.precioMedia ? 'Entera' : 'Precio', p.precio);
-    if (p.rubro === 'Pizzas' && p.precioMedia) {
-      lineas += linea(p.codigo + ':m', 'Media', p.precioMedia);
-    }
+    var lineas = (p.rubro === RUBRO_MEDIAS)
+      ? linea(p.codigo, 'Entera · media ' + pesos(p.precio / 2), p.precio)
+      : linea(p.codigo, 'Precio', p.precio);
 
     return '<article class="producto' + (chico ? ' chico' : '') + '" data-producto="' + esc(p.codigo) + '">' +
       foto +
@@ -134,18 +154,17 @@
     var b = ev.target.closest('button[data-clave]');
     if (!b) return;
     var clave = b.getAttribute('data-clave');
-    var nueva = Math.max(0, (carrito[clave] || 0) + Number(b.getAttribute('data-paso')));
+    var p = porCodigo[clave];
+    var paso = Number(b.getAttribute('data-paso')) * (p && p.rubro === RUBRO_MEDIAS ? 0.5 : 1);
+    var nueva = Math.max(0, (carrito[clave] || 0) + paso);
     if (nueva > 99) return;
     if (nueva === 0) delete carrito[clave]; else carrito[clave] = nueva;
 
     var out = document.querySelector('output[data-cantidad="' + CSS.escape(clave) + '"]');
-    out.textContent = nueva;
+    out.textContent = cant(nueva);
     out.parentNode.querySelector('.menos').disabled = (nueva === 0);
 
-    var codigo = clave.split(':')[0];
-    var tarjetaEl = document.querySelector('[data-producto="' + CSS.escape(codigo) + '"]');
-    var algo = (carrito[codigo] || 0) + (carrito[codigo + ':m'] || 0) > 0;
-    tarjetaEl.classList.toggle('elegido', algo);
+    document.querySelector('[data-producto="' + CSS.escape(clave) + '"]').classList.toggle('elegido', nueva > 0);
 
     $('error-catalogo').hidden = true;
     actualizarBarra();
@@ -169,7 +188,7 @@
 
   function calcular() {
     var renglones = [];      // { texto, detalle, importe }
-    var mediasTotal = 0;
+    var grandes = 0;            // suma de Pizza Grande (tiene que dar entero)
     var empanadas = 0;
     var empanadasDetalle = [];
     var unidades = 0;
@@ -178,32 +197,24 @@
     // Mismo orden que el catálogo: enteras y después medias de cada producto
     var orden = {};
     catalogo.productos.forEach(function (p, i) { orden[p.codigo] = i; });
-    var claves = Object.keys(carrito).sort(function (a, b) {
-      var pa = orden[a.replace(/:m$/, '')], pb = orden[b.replace(/:m$/, '')];
-      return (pa - pb) || (/:m$/.test(a) - /:m$/.test(b));
-    });
+    var claves = Object.keys(carrito).sort(function (a, b) { return orden[a] - orden[b]; });
 
     claves.forEach(function (clave) {
-      var cant = carrito[clave];
-      var esMedia = /:m$/.test(clave);
-      var p = porCodigo[clave.replace(/:m$/, '')];
+      var n = carrito[clave];
+      var p = porCodigo[clave];
       if (!p) return;
 
       if (p.rubro === 'Empanadas') {
-        empanadas += cant;
-        empanadasDetalle.push(cant + ' ' + p.nombre);
+        empanadas += n;
+        empanadasDetalle.push(n + ' ' + p.nombre);
         return;
       }
 
-      var precio = esMedia ? p.precioMedia : p.precio;
-      var importe = precio * cant;
-      if (esMedia) mediasTotal += cant;
-      unidades += esMedia ? cant / 2 : cant;
+      var importe = p.precio * n;
+      if (p.rubro === RUBRO_MEDIAS) grandes += n;
+      unidades += n;
       subtotal += importe;
-      renglones.push({
-        texto: cant + ' × ' + (esMedia ? 'Media ' : '') + p.nombre,
-        importe: importe
-      });
+      renglones.push({ texto: cant(n) + ' × ' + nombreLargo(p), importe: importe });
     });
 
     var emp = null;
@@ -230,7 +241,7 @@
     return {
       renglones: renglones,
       empanadas: emp,
-      mediasTotal: mediasTotal,
+      grandes: grandes,
       unidades: unidades,
       subtotal: subtotal,
       envio: entrega === 'envio' ? (catalogo.envio || 0) : 0
@@ -272,11 +283,11 @@
 
   function irADatos() {
     var c = calcular();
-    if (c.mediasTotal % 2 !== 0) {
+    if (c.grandes % 1 !== 0) {
       var err = $('error-catalogo');
-      err.textContent = 'Las medias pizzas tienen que formar pizzas enteras. Agregá o quitá una media para que se completen.';
+      err.textContent = 'Te quedó media pizza grande suelta. Sumá otra media (del gusto que quieras) para completar la pizza.';
       err.hidden = false;
-      document.getElementById('r-pizzas').scrollIntoView();
+      document.getElementById('r-' + slug(RUBRO_MEDIAS)).scrollIntoView();
       return;
     }
     $('paso-catalogo').hidden = true;
