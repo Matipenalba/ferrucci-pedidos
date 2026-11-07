@@ -77,6 +77,15 @@
     <p class="nota">Se abre WhatsApp con tu pedido escrito. Solo tenés que tocar enviar.</p>
   </main>
 
+  <!-- Detalle ampliado de un producto -->
+  <div class="detalle" id="detalle" role="dialog" aria-modal="true" aria-label="Detalle del producto" hidden>
+    <div class="detalle-hoja">
+      <button type="button" class="detalle-cerrar" id="detalle-cerrar" aria-label="Cerrar">×</button>
+      <div id="detalle-contenido"></div>
+      <button type="button" class="boton-principal detalle-listo" id="detalle-listo">Listo</button>
+    </div>
+  </div>
+
   <!-- Barra inferior del paso 1 -->
   <div class="barra" id="barra" hidden>
     <p id="error-catalogo" class="error" role="alert" hidden></p>

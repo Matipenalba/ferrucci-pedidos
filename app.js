@@ -13,7 +13,7 @@
     'Sándwiches': 'panuozzo.jpg', 'Bebidas': 'gaseosa.svg', 'Focaccias': 'focaccia.svg'
   };
   var BAJADAS = {
-    'Pizza Grande': 'Elegí pizzas enteras o media de un gusto. Cada media se combina con otra media para completar una pizza.',
+    'Pizza Grande': 'Elegí pizzas enteras o media de un gusto (una media por gusto). Cada media se combina con otra para completar una pizza.',
     'Pizza Chica': 'Pizzas individuales, de un solo gusto.'
   };
 
@@ -117,27 +117,74 @@
         '</section>';
     }).join('');
 
-    $('catalogo').addEventListener('click', alTocarContador);
+    $('catalogo').addEventListener('click', function (ev) {
+      var ver = ev.target.closest('[data-ver]');
+      if (ver && !ev.target.closest('button[data-clave]')) { abrirDetalle(ver.getAttribute('data-ver')); return; }
+      alTocarContador(ev);
+    });
     marcarRubroActivo();
   }
 
-  function tarjeta(p, chico) {
+  function fotoDe(p) {
     var archivo = p.foto || FOTO_POR_RUBRO[p.rubro] || 'pizza.svg';
-    var esIlustracion = /\.svg$/i.test(archivo);
-    var foto = '<img class="producto-foto' + (esIlustracion ? ' ilustracion' : '') + '" src="img/' + esc(archivo) +
-      '" alt="' + esc(p.nombre) + '" loading="lazy">';
+    return { src: 'img/' + archivo, ilustracion: /\.svg$/i.test(archivo) };
+  }
 
-    var lineas = (p.rubro === RUBRO_MEDIAS)
-      ? linea(p.codigo, 'Entera', p.precio) + linea(p.codigo + ':m', 'Media (una por gusto)', p.precio / 2)
+  function lineasDe(p) {
+    return (p.rubro === RUBRO_MEDIAS)
+      ? linea(p.codigo, 'Entera', p.precio) + linea(p.codigo + ':m', 'Media', p.precio / 2)
       : linea(p.codigo, 'Precio', p.precio);
+  }
 
+  function tarjeta(p, chico) {
+    var f = fotoDe(p);
     return '<article class="producto' + (chico ? ' chico' : '') + '" data-producto="' + esc(p.codigo) + '">' +
-      foto +
+      '<button type="button" class="producto-abrir" data-ver="' + esc(p.codigo) + '" aria-label="Ver detalle de ' + esc(p.nombre) + '">' +
+      '<img class="producto-foto' + (f.ilustracion ? ' ilustracion' : '') + '" src="' + esc(f.src) + '" alt="" loading="lazy">' +
+      '<span class="ver-mas">Ver más</span>' +
+      '</button>' +
       '<div class="producto-cuerpo">' +
-      '<h3 class="producto-nombre">' + esc(p.nombre) + '</h3>' +
-      (p.descripcion ? '<p class="producto-desc">' + esc(p.descripcion) + '</p>' : '') +
-      lineas +
+      '<h3 class="producto-nombre" data-ver="' + esc(p.codigo) + '">' + esc(p.nombre) + '</h3>' +
+      (p.descripcion ? '<p class="producto-desc" data-ver="' + esc(p.descripcion ? p.codigo : '') + '">' + esc(p.descripcion) + '</p>' : '') +
+      lineasDe(p) +
       '</div></article>';
+  }
+
+  // ---------- Detalle ampliado ----------
+
+  function abrirDetalle(codigo) {
+    var p = porCodigo[codigo];
+    if (!p) return;
+    var f = fotoDe(p);
+    $('detalle-contenido').innerHTML =
+      '<img class="detalle-foto' + (f.ilustracion ? ' ilustracion' : '') + '" src="' + esc(f.src) + '" alt="' + esc(p.nombre) + '">' +
+      '<div class="detalle-cuerpo">' +
+      '<p class="detalle-rubro">' + esc(p.rubro) + '</p>' +
+      '<h3 class="detalle-nombre">' + esc(p.nombre) + '</h3>' +
+      (p.descripcion ? '<p class="detalle-desc">' + esc(p.descripcion) + '</p>' : '') +
+      lineasDe(p) +
+      '</div>';
+    sincronizarContadores();
+    $('detalle').hidden = false;
+    document.body.classList.add('sin-scroll');
+    $('detalle-cerrar').focus();
+  }
+
+  function cerrarDetalle() {
+    $('detalle').hidden = true;
+    document.body.classList.remove('sin-scroll');
+  }
+
+  // Deja todos los contadores (tarjeta y detalle) iguales al carrito
+  function sincronizarContadores() {
+    document.querySelectorAll('output[data-cantidad]').forEach(function (out) {
+      var clave = out.getAttribute('data-cantidad');
+      var n = carrito[clave] || 0;
+      var maximo = /:m$/.test(clave) ? 1 : 99;
+      out.textContent = n;
+      out.parentNode.querySelector('.menos').disabled = (n === 0);
+      out.parentNode.querySelector('.mas').disabled = (n >= maximo);
+    });
   }
 
   function linea(clave, etiqueta, precio) {
@@ -161,15 +208,11 @@
     if (nueva > maximo) return;
     if (nueva === 0) delete carrito[clave]; else carrito[clave] = nueva;
 
-    var out = document.querySelector('output[data-cantidad="' + CSS.escape(clave) + '"]');
-    out.textContent = nueva;
-    out.parentNode.querySelector('.menos').disabled = (nueva === 0);
-    out.parentNode.querySelector('.mas').disabled = (nueva >= maximo);
+    sincronizarContadores();
 
     var algo = (carrito[codigo] || 0) + (carrito[codigo + ':m'] || 0) > 0;
     document.querySelector('[data-producto="' + CSS.escape(codigo) + '"]').classList.toggle('elegido', algo);
 
-    $('error-catalogo').hidden = true;
     actualizarBarra();
   }
 
@@ -263,6 +306,15 @@
     $('barra-cantidad').textContent = piezas + (piezas === 1 ? ' ítem' : ' ítems');
     $('barra-total').textContent = pesos(c.subtotal);
 
+    // Media pizza grande suelta: aviso fijo y no deja continuar hasta completarla
+    var mediaSuelta = c.grandes % 1 !== 0;
+    var err = $('error-catalogo');
+    err.textContent = mediaSuelta
+      ? 'Falta otra media pizza grande para completar la pizza. Elegí otra media del gusto que quieras.'
+      : '';
+    err.hidden = !mediaSuelta;
+    $('btn-continuar').disabled = mediaSuelta;
+
     var est = $('estado-empanadas');
     if (est) {
       est.textContent = c.empanadas
@@ -289,13 +341,7 @@
 
   function irADatos() {
     var c = calcular();
-    if (c.grandes % 1 !== 0) {
-      var err = $('error-catalogo');
-      err.textContent = 'Te quedó media pizza grande suelta. Sumá otra media (del gusto que quieras) para completar la pizza.';
-      err.hidden = false;
-      document.getElementById('r-' + slug(RUBRO_MEDIAS)).scrollIntoView();
-      return;
-    }
+    if (c.grandes % 1 !== 0) return;   // el aviso ya está visible en la barra
     $('paso-catalogo').hidden = true;
     $('barra').hidden = true;
     $('paso-datos').hidden = false;
@@ -384,6 +430,17 @@
   }
 
   // ---------- Eventos ----------
+
+  $('detalle').addEventListener('click', function (ev) {
+    if (ev.target === $('detalle') || ev.target.closest('#detalle-cerrar') || ev.target.closest('#detalle-listo')) {
+      cerrarDetalle();
+      return;
+    }
+    alTocarContador(ev);
+  });
+  document.addEventListener('keydown', function (ev) {
+    if (ev.key === 'Escape' && !$('detalle').hidden) cerrarDetalle();
+  });
 
   $('btn-continuar').addEventListener('click', irADatos);
   $('btn-volver').addEventListener('click', volverACatalogo);

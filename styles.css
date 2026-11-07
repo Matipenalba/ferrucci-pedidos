@@ -278,3 +278,77 @@ input { font: inherit; }
 .nota { color: var(--texto-suave); font-size: 14px; text-align: center; margin: 10px 0 0; }
 
 .producto-foto.ilustracion { object-fit: cover; }
+
+/* ---------- Grilla compacta: 2 columnas en celular, 3 en pantallas anchas ---------- */
+.grilla { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+@media (min-width: 640px) { .grilla { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; } }
+
+.producto { border-radius: 12px; }
+.producto-foto { aspect-ratio: 1 / 1; }
+.producto-cuerpo { padding: 9px 10px 10px; gap: 7px; }
+.producto-nombre { font-size: 15px; line-height: 1.25; }
+.producto-desc { font-size: 12.5px; line-height: 1.35; margin-top: -4px; }
+
+.linea-compra { flex-direction: column; align-items: stretch; gap: 5px; }
+.linea-compra + .linea-compra { padding-top: 8px; }
+.linea-etiqueta { flex-direction: row; justify-content: space-between; align-items: baseline; gap: 6px; }
+.linea-etiqueta small { font-size: 12px; }
+.precio { font-size: 15px; }
+
+.contador { justify-content: space-between; }
+.contador button { width: 36px; height: 36px; font-size: 20px; }
+.contador output { font-size: 16px; }
+
+.seccion h2 { font-size: 24px; }
+.seccion .bajada { font-size: 14px; }
+
+/* ---------- Descripción corta y detalle ampliado ---------- */
+.producto-abrir { display: block; position: relative; width: 100%; padding: 0; border: 0; background: none; }
+.ver-mas {
+  position: absolute; right: 6px; bottom: 6px;
+  padding: 3px 8px; border-radius: 999px;
+  background: rgba(20, 17, 15, .78); color: var(--texto);
+  font-size: 11px; font-weight: 500;
+}
+.producto-nombre[data-ver], .producto-desc[data-ver] { cursor: pointer; }
+.producto-desc {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+body.sin-scroll { overflow: hidden; }
+.detalle {
+  position: fixed; inset: 0; z-index: 20;
+  background: rgba(0, 0, 0, .7);
+  display: flex; align-items: flex-end; justify-content: center;
+}
+.detalle-hoja {
+  position: relative;
+  width: 100%; max-width: 480px; max-height: 92vh; overflow-y: auto;
+  background: var(--superficie);
+  border-radius: 18px 18px 0 0;
+  padding-bottom: calc(14px + env(safe-area-inset-bottom));
+  animation: subir .2s ease-out;
+}
+@media (min-width: 640px) {
+  .detalle { align-items: center; }
+  .detalle-hoja { border-radius: 18px; }
+}
+@keyframes subir { from { transform: translateY(30px); opacity: 0; } to { transform: none; opacity: 1; } }
+.detalle-cerrar {
+  position: absolute; top: 10px; right: 10px; z-index: 1;
+  width: 38px; height: 38px; border-radius: 50%;
+  border: 0; background: rgba(20, 17, 15, .8); color: var(--texto);
+  font-size: 24px; line-height: 1;
+}
+.detalle-foto { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; background: #0d0b0a; }
+.detalle-cuerpo { padding: 14px 16px 6px; display: flex; flex-direction: column; gap: 12px; }
+.detalle-rubro { margin: 0; color: var(--acento-2); font-size: 13px; font-weight: 500; }
+.detalle-nombre { margin: -8px 0 0; font-family: "Fraunces", serif; font-weight: 800; font-size: 26px; }
+.detalle-desc { margin: -4px 0 0; color: var(--texto-suave); font-size: 15px; }
+.detalle-cuerpo .linea-compra { flex-direction: row; align-items: center; }
+.detalle-cuerpo .contador { gap: 6px; }
+.detalle-cuerpo .contador button { width: 42px; height: 42px; }
+.detalle-listo { display: block; width: calc(100% - 32px); margin: 8px 16px 0; box-shadow: none; }
