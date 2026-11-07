@@ -344,6 +344,8 @@
     l.push(entrega === 'envio'
       ? 'Envío a domicilio: ' + $('domicilio').value.trim()
       : 'Retiro en el local');
+    var horario = $('horario').value.trim();
+    if (horario) l.push('Horario de preferencia: ' + horario);
     l.push('');
     c.renglones.forEach(function (r) { l.push('• ' + r.texto + ': ' + pesos(r.importe)); });
     if (c.empanadas) {
